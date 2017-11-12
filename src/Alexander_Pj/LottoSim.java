@@ -34,16 +34,25 @@ public class LottoSim {
 		int[] yourNumbers = new int[6];
 
 		for (int i = 0; i < yourNumbers.length; i++) {
+
+			while (!scan.hasNextInt()) {
+				scan.next();
+				System.out.println("Podana wartość nie jest liczbą");
+			}
+			
 			int x = scan.nextInt();
-			while(x<1 || x>49) {				
-				 scan.next();
+			while (x < 1 || x > 49) {
+				scan.nextInt();
 				System.out.println("Podana liczba nie mieści się w zakresie 1-49");
-			} 
-			 yourNumbers[i] = x;
+			}
+			
+			yourNumbers[i] = x;
+
+			//System.out.println(yourNumbers[i]);
 		}
 		Arrays.sort(yourNumbers);
 		Arrays.sort(lottoNumbers);
-		
+
 		System.out.println();
 		System.out.print("Twoje liczby to: ");
 		System.out.println(Arrays.toString(yourNumbers));
